@@ -146,7 +146,7 @@ QtObject {
 			}
 			var item = {
 				dayLabel: tokens[0],
-				forecastIcon: tokens[1],
+				forecastIcon: existingWeatherIconName(tokens[1]),
 				forecastLabel: tokens[2],
 				tempHigh: tokens[3],
 				tempLow: tokens[4],
