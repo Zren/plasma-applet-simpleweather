@@ -1,4 +1,4 @@
-// Version 3
+// Version 4
 
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
@@ -91,25 +91,47 @@ QtObject {
 		return tokens
 	}
 
+	function parseForecastLabel(tokens) {
+		var condition = tokens[2]
+		var probability = tokens[5] // popPercent
+		if (probability !== "N/U" && probability !== "N/A" && !!probability) {
+			return i18ndc("plasma_applet_org.kde.plasma.weather",
+				"certain weather condition (probability percentage)",
+				"%1 (%2 %)", condition, probability)
+		} else {
+			return condition
+		}
+	}
+
 	readonly property var todaysWeather: parseForecast(0) // currentData["Short Forecast Day 0"]
 	readonly property string todaysDayLabel: todaysWeather[0]
 	readonly property string todaysForecastIcon: todaysWeather[1]
-	readonly property string todaysForecastLabel: todaysWeather[2]
+	readonly property string todaysCondition: todaysWeather[2]
 	readonly property var todaysTempHigh: todaysWeather[3]
 	readonly property var todaysTempLow: todaysWeather[4]
 	readonly property var todaysPopPercent: todaysWeather[5]
+	readonly property string todaysForecastLabel: parseForecastLabel(todaysWeather)
 
+	// The Util module is only available to other widgets in Plasma 5.13+.
+	// So we need to wrap this function to support Plasma 5.12 LTS.
+	// * https://github.com/KDE/kdeplasma-addons/blob/Plasma/5.12/applets/weather/plugin/plugin.cpp#L110
+	// * https://github.com/KDE/kdeplasma-addons/blob/Plasma/5.13/applets/weather/plugin/plugin.cpp#L110
 	function existingWeatherIconName(iconName) {
-		// The Util module is only available to other widgets in Plasma 5.13+.
-		// So we need to wrap this function to support Plasma 5.12 LTS.
-		// * https://github.com/KDE/kdeplasma-addons/blob/Plasma/5.12/applets/weather/plugin/plugin.cpp#L110
-		// * https://github.com/KDE/kdeplasma-addons/blob/Plasma/5.13/applets/weather/plugin/plugin.cpp#L110
-		if (false && typeof WeatherPlugin["Util"] !== "undefined") {
+		if (typeof WeatherPlugin["Util"] !== "undefined") {
 			// Plasma 5.13+
 			return WeatherPlugin.Util.existingWeatherIconName(iconName)
 		} else {
 			// <= Plasma 5.12
 			return iconName
+		}
+	}
+	function percentToDisplayString(percent) {
+		if (typeof WeatherPlugin["Util"] !== "undefined") {
+			// Plasma 5.13+
+			return WeatherPlugin.Util.percentToDisplayString(percent)
+		} else {
+			// <= Plasma 5.12
+			return percent + ' %'
 		}
 	}
 
@@ -147,16 +169,37 @@ QtObject {
 			var item = {
 				dayLabel: tokens[0],
 				forecastIcon: existingWeatherIconName(tokens[1]),
-				forecastLabel: tokens[2],
+				condition: tokens[2],
 				tempHigh: tokens[3],
 				tempLow: tokens[4],
 				popPercent: tokens[5],
+				forecastLabel: parseForecastLabel(tokens),
 			}
 			model.push(item)
 		}
 		return model
 	}
 
+	// To find a specific to test warnings, check the EnvCan national map at:
+	// https://weather.gc.ca/warnings/index_e.html
+	function parseNoticeList(totalKey, itemKey) {
+		var model = []
+		var noticesCount = parseInt(data["Total "+totalKey+" Issued"] || "", 10) // data["Total Warnings Issued"]
+		if (isNaN(noticesCount)) {
+			noticesCount = 0
+		}
+		for (var i = 0; i < noticesCount; ++i) {
+			var notice = {
+				"description": data[itemKey+" Description "+i], // data["Warning Description 0"]
+				"url": data[itemKey+" Info "+i], // data["Warning Info 0"]
+			}
+			model.push(notice)
+		}
+		// console.log(totalKey, JSON.stringify(model, null, '  '))
+		return model
+	}
+	property var warningsModel: parseNoticeList("Warnings", "Warning")
+	property var watchesModel: parseNoticeList("Watches", "Watch")
 
 
 	// property Timer testTimer: Timer {
