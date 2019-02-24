@@ -45,14 +45,16 @@ Item {
 			NoticesListView {
 				Layout.fillWidth: true
 				model: weatherData.watchesModel
-				visible: forecastLayout.showWatches && model.length > 0
+				readonly property bool showWatches: plasmoid.configuration.showWarnings
+				visible: showWatches && model.length > 0
 				state: "Watches"
 			}
 
 			NoticesListView {
 				Layout.fillWidth: true
 				model: weatherData.warningsModel
-				visible: forecastLayout.showWarnings && model.length > 0
+				readonly property bool showWarnings: plasmoid.configuration.showWarnings
+				visible: showWarnings && model.length > 0
 				state: "Warnings"
 			}
 		}
