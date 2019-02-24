@@ -35,11 +35,12 @@ Item {
 		}
 
 		ColumnLayout {
+			id: forecastLayout
 			anchors.fill: parent
 			spacing: units.smallSpacing
 
 			CurrentWeatherView {
-				id: forecastLayout
+				id: currentWeatherView
 			}
 
 			NoticesListView {

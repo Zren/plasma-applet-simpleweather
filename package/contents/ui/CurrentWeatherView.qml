@@ -7,7 +7,7 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.private.weather 1.0 as WeatherPlugin
 
 RowLayout {
-	id: forecastLayout
+	id: currentWeatherView
 	spacing: units.smallSpacing
 	opacity: weatherData.hasData ? 1 : 0
 	Behavior on opacity { NumberAnimation { duration: 1000 } }
@@ -25,8 +25,8 @@ RowLayout {
 			Layout.preferredWidth: hasValue ? implicitWidth : 0
 			font.pointSize: -1
 			font.pixelSize: 14 * units.devicePixelRatio
-			font.family: forecastLayout.fontFamily
-			font.weight: forecastLayout.fontBold
+			font.family: currentWeatherView.fontFamily
+			font.weight: currentWeatherView.fontBold
 			Layout.alignment: Qt.AlignHCenter
 
 			// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
@@ -48,8 +48,8 @@ RowLayout {
 			Layout.preferredWidth: hasValue ? implicitWidth : 0
 			font.pointSize: -1
 			font.pixelSize: 14 * units.devicePixelRatio
-			font.family: forecastLayout.fontFamily
-			font.weight: forecastLayout.fontBold
+			font.family: currentWeatherView.fontFamily
+			font.weight: currentWeatherView.fontBold
 			Layout.alignment: Qt.AlignHCenter
 
 			// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
@@ -77,8 +77,8 @@ RowLayout {
 				font.pointSize: -1
 				font.pixelSize: parent.height
 				height: implicitHeight
-				font.family: forecastLayout.fontFamily
-				font.weight: forecastLayout.fontBold
+				font.family: currentWeatherView.fontFamily
+				font.weight: currentWeatherView.fontBold
 
 				// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#ff0" }
 			}
@@ -98,8 +98,8 @@ RowLayout {
 			text: weatherData.todaysForecastLabel
 			font.pointSize: -1
 			font.pixelSize: 12 * units.devicePixelRatio
-			font.family: forecastLayout.fontFamily
-			font.weight: forecastLayout.fontBold
+			font.family: currentWeatherView.fontFamily
+			font.weight: currentWeatherView.fontBold
 			Layout.alignment: Qt.AlignHCenter
 
 			// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
