@@ -34,8 +34,27 @@ Item {
 			onClicked: plasmoid.action("configure").trigger()
 		}
 
-		CurrentWeatherView {
-			id: forecastLayout
+		ColumnLayout {
+			anchors.fill: parent
+			spacing: units.smallSpacing
+
+			CurrentWeatherView {
+				id: forecastLayout
+			}
+
+			NoticesListView {
+				Layout.fillWidth: true
+				model: weatherData.watchesModel
+				visible: forecastLayout.showWatches && model.length > 0
+				state: "Watches"
+			}
+
+			NoticesListView {
+				Layout.fillWidth: true
+				model: weatherData.warningsModel
+				visible: forecastLayout.showWarnings && model.length > 0
+				state: "Warnings"
+			}
 		}
 
 	}

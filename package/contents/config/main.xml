@@ -19,6 +19,9 @@
 		<entry name="bold" type="bool">
 			<default>true</default>
 		</entry>
+		<entry name="showWarnings" type="bool">
+			<default>true</default>
+		</entry>
 	</group>
 
 </kcfg>

@@ -70,6 +70,11 @@ ConfigPage {
 			configKey: "showBackground"
 			text: i18n("Desktop Widget: Show background")
 		}
+
+		ConfigCheckBox {
+			configKey: "showWarnings"
+			text: i18n("Show weather warnings")
+		}
 	}
 
 }
