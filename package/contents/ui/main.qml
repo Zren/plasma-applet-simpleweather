@@ -41,6 +41,7 @@ Item {
 
 			CurrentWeatherView {
 				id: currentWeatherView
+				Layout.alignment: Qt.AlignHCenter
 			}
 
 			NoticesListView {

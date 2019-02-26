@@ -59,12 +59,11 @@ RowLayout {
 		spacing: 0
 
 		Item {
-			implicitWidth: currentTempLabel.contentWidth
+			implicitWidth: currentTempLabel.hasValue ? currentTempLabel.contentWidth : currentForecastIcon.implicitWidth
 			Layout.minimumWidth: implicitWidth
 			Layout.minimumHeight: 18 * units.devicePixelRatio
 
 			Layout.fillHeight: true
-			Layout.fillWidth: true
 
 			// Note: wettercom does not have a current temp
 			PlasmaComponents.Label {
@@ -86,7 +85,9 @@ RowLayout {
 			// Note: wettercom does not have a current temp so use an icon instead
 			PlasmaCore.IconItem {
 				id: currentForecastIcon
-				anchors.fill: parent
+				anchors.centerIn: parent
+				implicitWidth: parent.height
+				implicitHeight: parent.height
 				visible: !currentTempLabel.hasValue
 				source: weatherData.currentConditionIconName
 			}
