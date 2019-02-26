@@ -90,6 +90,7 @@ RowLayout {
 				implicitHeight: parent.height
 				visible: !currentTempLabel.hasValue
 				source: weatherData.currentConditionIconName
+				roundToIconSize: false
 			}
 
 			// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
