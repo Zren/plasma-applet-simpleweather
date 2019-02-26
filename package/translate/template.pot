@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: simpleweather \n"
 "Report-Msgid-Bugs-To: https://github.com/Zren/plasma-applet-simpleweather\n"
-"POT-Creation-Date: 2019-02-02 16:26-0500\n"
+"POT-Creation-Date: 2019-02-26 18:32-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,11 @@ msgstr ""
 msgid "Desktop Widget: Show background"
 msgstr ""
 
-#: ../contents/ui/CurrentWeatherView.qml:25 ../contents/ui/CurrentWeatherView.qml:48 ../contents/ui/CurrentWeatherView.qml:76
+#: ../contents/ui/config/ConfigGeneral.qml:76
+msgid "Show weather warnings"
+msgstr ""
+
+#: ../contents/ui/CurrentWeatherView.qml:24 ../contents/ui/CurrentWeatherView.qml:47 ../contents/ui/CurrentWeatherView.qml:74
 msgid "%1°"
 msgstr ""
 
