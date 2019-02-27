@@ -1,3 +1,10 @@
+## v4 - February 27 2019
+
+* Show weather warnings (envcan only).
+* Remove whitespace between min/max temp and current temp.
+* Don't round weather icon to fixed sizes when medium/small.
+* Updated Dutch translation (Pull Request #6)
+
 ## v3 - February 2 2019
 
 * Fixed compatibility with openSUSE Leap with Plasma 5.12 / KDE Frameworks 5.45 / Kirigami 2.4 (Issue #2) and wetter not displaying an icon (Issue #4).
