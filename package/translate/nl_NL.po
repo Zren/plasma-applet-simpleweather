@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: simpleweather\n"
 "Report-Msgid-Bugs-To: https://github.com/Zren/plasma-applet-simpleweather\n"
 "POT-Creation-Date: 2019-02-26 18:32-0500\n"
-"PO-Revision-Date: 2019-01-30 12:26+0100\n"
+"PO-Revision-Date: 2019-02-27 20:23+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
 "Language: nl_NL\n"
@@ -32,9 +32,11 @@ msgstr "Bureaubladwidget: achtergrond tonen"
 
 #: ../contents/ui/config/ConfigGeneral.qml:76
 msgid "Show weather warnings"
-msgstr ""
+msgstr "Weerwaarschuwingen tonen"
 
-#: ../contents/ui/CurrentWeatherView.qml:24 ../contents/ui/CurrentWeatherView.qml:47 ../contents/ui/CurrentWeatherView.qml:74
+#: ../contents/ui/CurrentWeatherView.qml:24
+#: ../contents/ui/CurrentWeatherView.qml:47
+#: ../contents/ui/CurrentWeatherView.qml:74
 msgid "%1°"
 msgstr "%1°"
 
