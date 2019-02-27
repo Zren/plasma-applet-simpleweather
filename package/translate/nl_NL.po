@@ -34,9 +34,7 @@ msgstr "Bureaubladwidget: achtergrond tonen"
 msgid "Show weather warnings"
 msgstr "Weerwaarschuwingen tonen"
 
-#: ../contents/ui/CurrentWeatherView.qml:24
-#: ../contents/ui/CurrentWeatherView.qml:47
-#: ../contents/ui/CurrentWeatherView.qml:74
+#: ../contents/ui/CurrentWeatherView.qml:24 ../contents/ui/CurrentWeatherView.qml:47 ../contents/ui/CurrentWeatherView.qml:74
 msgid "%1°"
 msgstr "%1°"
 
