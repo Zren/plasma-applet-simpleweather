@@ -71,7 +71,7 @@ RowLayout {
 				anchors.centerIn: parent
 				readonly property var value: weatherData.currentTemp
 				readonly property bool hasValue: !isNaN(value)
-				text: hasValue ? i18n("%1°", value) : ""
+				text: hasValue ? i18n("%1°", Math.round(value)) : ""
 				fontSizeMode: Text.FixedSize
 				font.pointSize: -1
 				font.pixelSize: parent.height
