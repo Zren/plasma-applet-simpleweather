@@ -62,7 +62,7 @@ RowLayout {
 			implicitWidth: currentTempLabel.hasValue ? currentTempLabel.contentWidth : currentForecastIcon.implicitWidth
 			Layout.minimumWidth: implicitWidth
 			Layout.minimumHeight: 18 * units.devicePixelRatio
-
+			Layout.alignment: Qt.AlignHCenter
 			Layout.fillHeight: true
 
 			// Note: wettercom does not have a current temp
