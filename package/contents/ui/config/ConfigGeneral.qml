@@ -46,6 +46,11 @@ ConfigPage {
 				onClicked: stationPicker.visible = true
 			}
 		}
+
+		WeatherStationCredits {
+			id: weatherStationCredits
+		}
+
 		ConfigSpinBox {
 			Kirigami.FormData.label: i18ndc("plasma_applet_org.kde.plasma.weather", "@label:spinbox", "Update every:")
 			configKey: "updateInterval"
