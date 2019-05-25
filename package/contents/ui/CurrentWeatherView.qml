@@ -6,57 +6,61 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 
 import org.kde.plasma.private.weather 1.0 as WeatherPlugin
 
-RowLayout {
+ColumnLayout {
 	id: currentWeatherView
-	spacing: units.smallSpacing
+
+	spacing: 0
+
 	opacity: weatherData.hasData ? 1 : 0
 	Behavior on opacity { NumberAnimation { duration: 1000 } }
 
 	readonly property string fontFamily: plasmoid.configuration.fontFamily || theme.defaultFont.family
 	readonly property var fontBold: plasmoid.configuration.bold ? Font.Bold : Font.Normal
 
-	ColumnLayout {
+
+	RowLayout {
 		spacing: units.smallSpacing
 
-		PlasmaComponents.Label {
-			readonly property var value: weatherData.todaysTempHigh
-			readonly property bool hasValue: !isNaN(value)
-			text: hasValue ? i18n("%1°", value) : ""
-			Layout.preferredWidth: hasValue ? implicitWidth : 0
-			font.pointSize: -1
-			font.pixelSize: 14 * units.devicePixelRatio
-			font.family: currentWeatherView.fontFamily
-			font.weight: currentWeatherView.fontBold
-			Layout.alignment: Qt.AlignHCenter
+		ColumnLayout {
+			spacing: units.smallSpacing
 
-			// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
+			PlasmaComponents.Label {
+				readonly property var value: weatherData.todaysTempHigh
+				readonly property bool hasValue: !isNaN(value)
+				text: hasValue ? i18n("%1°", value) : ""
+				Layout.preferredWidth: hasValue ? implicitWidth : 0
+				font.pointSize: -1
+				font.pixelSize: 14 * units.devicePixelRatio
+				font.family: currentWeatherView.fontFamily
+				font.weight: currentWeatherView.fontBold
+				Layout.alignment: Qt.AlignHCenter
+
+				// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
+			}
+
+			Rectangle {
+				visible: !isNaN(weatherData.todaysTempHigh) || !isNaN(weatherData.todaysTempLow)
+				color: theme.textColor
+				implicitWidth: 20 * units.devicePixelRatio
+				implicitHeight: 1 * units.devicePixelRatio
+				Layout.alignment: Qt.AlignHCenter
+			}
+
+
+			PlasmaComponents.Label {
+				readonly property var value: weatherData.todaysTempLow
+				readonly property bool hasValue: !isNaN(value)
+				text: hasValue ? i18n("%1°", value) : ""
+				Layout.preferredWidth: hasValue ? implicitWidth : 0
+				font.pointSize: -1
+				font.pixelSize: 14 * units.devicePixelRatio
+				font.family: currentWeatherView.fontFamily
+				font.weight: currentWeatherView.fontBold
+				Layout.alignment: Qt.AlignHCenter
+
+				// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
+			}
 		}
-
-		Rectangle {
-			visible: !isNaN(weatherData.todaysTempHigh) || !isNaN(weatherData.todaysTempLow)
-			color: theme.textColor
-			implicitWidth: 20 * units.devicePixelRatio
-			implicitHeight: 1 * units.devicePixelRatio
-			Layout.alignment: Qt.AlignHCenter
-		}
-
-
-		PlasmaComponents.Label {
-			readonly property var value: weatherData.todaysTempLow
-			readonly property bool hasValue: !isNaN(value)
-			text: hasValue ? i18n("%1°", value) : ""
-			Layout.preferredWidth: hasValue ? implicitWidth : 0
-			font.pointSize: -1
-			font.pixelSize: 14 * units.devicePixelRatio
-			font.family: currentWeatherView.fontFamily
-			font.weight: currentWeatherView.fontBold
-			Layout.alignment: Qt.AlignHCenter
-
-			// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
-		}
-	}
-	ColumnLayout {
-		spacing: 0
 
 		Item {
 			implicitWidth: currentTempLabel.hasValue ? currentTempLabel.contentWidth : currentForecastIcon.implicitWidth
@@ -95,17 +99,17 @@ RowLayout {
 
 			// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
 		}
+	}
 
-		PlasmaComponents.Label {
-			text: weatherData.todaysForecastLabel
-			font.pointSize: -1
-			font.pixelSize: 12 * units.devicePixelRatio
-			font.family: currentWeatherView.fontFamily
-			font.weight: currentWeatherView.fontBold
-			Layout.alignment: Qt.AlignHCenter
+	PlasmaComponents.Label {
+		text: weatherData.todaysForecastLabel
+		font.pointSize: -1
+		font.pixelSize: 12 * units.devicePixelRatio
+		font.family: currentWeatherView.fontFamily
+		font.weight: currentWeatherView.fontBold
+		Layout.alignment: Qt.AlignHCenter
 
-			// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
-		}
+		// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
 	}
 
 }
