@@ -43,7 +43,7 @@ Or if you know how to make a pull request
 | ko       |     3/7 |   42% |
 | nl_NL    |     7/7 |  100% |
 | pl       |     3/7 |   42% |
-| pt_BR    |     3/7 |   42% |
+| pt_BR    |     7/7 |  100% |
 | ru       |     3/7 |   42% |
 | uk       |     3/7 |   42% |
 | zh_CN    |     3/7 |   42% |
