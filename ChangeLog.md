@@ -1,3 +1,10 @@
+## v5 - May 25 2019
+
+* Center align the current temp/icon when thinner than the forecast text
+* Round current temp to an integer (only envcan needed it).
+* Show the weather source's credits text and link.
+* Brazillian Portegeus translations by @herzenschein (Pull Request #7)
+
 ## v4 - February 27 2019
 
 * Show weather warnings (envcan only).
