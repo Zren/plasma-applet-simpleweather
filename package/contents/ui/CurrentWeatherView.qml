@@ -17,6 +17,11 @@ ColumnLayout {
 	readonly property string fontFamily: plasmoid.configuration.fontFamily || theme.defaultFont.family
 	readonly property var fontBold: plasmoid.configuration.bold ? Font.Bold : Font.Normal
 
+	readonly property int minMaxFontSize: plasmoid.configuration.minMaxFontSize * units.devicePixelRatio
+	readonly property int forecastFontSize: plasmoid.configuration.forecastFontSize * units.devicePixelRatio
+
+	readonly property int minMaxSeparatorWidth: minMaxFontSize * 1.4
+
 
 	RowLayout {
 		spacing: units.smallSpacing
@@ -30,7 +35,7 @@ ColumnLayout {
 				text: hasValue ? i18n("%1°", value) : ""
 				Layout.preferredWidth: hasValue ? implicitWidth : 0
 				font.pointSize: -1
-				font.pixelSize: 14 * units.devicePixelRatio
+				font.pixelSize: currentWeatherView.minMaxFontSize
 				font.family: currentWeatherView.fontFamily
 				font.weight: currentWeatherView.fontBold
 				Layout.alignment: Qt.AlignHCenter
@@ -41,7 +46,7 @@ ColumnLayout {
 			Rectangle {
 				visible: !isNaN(weatherData.todaysTempHigh) || !isNaN(weatherData.todaysTempLow)
 				color: theme.textColor
-				implicitWidth: 20 * units.devicePixelRatio
+				implicitWidth: currentWeatherView.minMaxSeparatorWidth
 				implicitHeight: 1 * units.devicePixelRatio
 				Layout.alignment: Qt.AlignHCenter
 			}
@@ -53,7 +58,7 @@ ColumnLayout {
 				text: hasValue ? i18n("%1°", value) : ""
 				Layout.preferredWidth: hasValue ? implicitWidth : 0
 				font.pointSize: -1
-				font.pixelSize: 14 * units.devicePixelRatio
+				font.pixelSize:currentWeatherView.minMaxFontSize
 				font.family: currentWeatherView.fontFamily
 				font.weight: currentWeatherView.fontBold
 				Layout.alignment: Qt.AlignHCenter
@@ -104,7 +109,7 @@ ColumnLayout {
 	PlasmaComponents.Label {
 		text: weatherData.todaysForecastLabel
 		font.pointSize: -1
-		font.pixelSize: 12 * units.devicePixelRatio
+		font.pixelSize: currentWeatherView.forecastFontSize
 		font.family: currentWeatherView.fontFamily
 		font.weight: currentWeatherView.fontBold
 		Layout.alignment: Qt.AlignHCenter

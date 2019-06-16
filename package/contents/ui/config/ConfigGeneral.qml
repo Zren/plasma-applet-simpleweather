@@ -60,6 +60,19 @@ ConfigPage {
 			maximumValue: 3600
 		}
 
+		ConfigCheckBox {
+			configKey: "showWarnings"
+			text: i18n("Show weather warnings")
+		}
+
+		ConfigCheckBox {
+			configKey: "showBackground"
+			text: i18n("Desktop Widget: Show background")
+		}
+
+		Kirigami.Separator {
+			Kirigami.FormData.isSection: true
+		}
 
 		RowLayout {
 			Kirigami.FormData.label: i18n("Font Family:")
@@ -71,14 +84,16 @@ ConfigPage {
 			}
 		}
 
-		ConfigCheckBox {
-			configKey: "showBackground"
-			text: i18n("Desktop Widget: Show background")
+		ConfigSpinBox {
+			Kirigami.FormData.label: i18n("Min/Max Temp:")
+			configKey: "minMaxFontSize"
+			suffix: i18nc("font size suffix", "pt")
 		}
 
-		ConfigCheckBox {
-			configKey: "showWarnings"
-			text: i18n("Show weather warnings")
+		ConfigSpinBox {
+			Kirigami.FormData.label: i18n("Condition:")
+			configKey: "forecastFontSize"
+			suffix: i18nc("font size suffix", "pt")
 		}
 	}
 
