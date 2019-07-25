@@ -61,7 +61,7 @@ ColumnLayout {
 				text: hasValue ? i18n("%1°", value) : ""
 				Layout.preferredWidth: hasValue ? implicitWidth : 0
 				font.pointSize: -1
-				font.pixelSize:currentWeatherView.minMaxFontSize
+				font.pixelSize: currentWeatherView.minMaxFontSize
 				font.family: currentWeatherView.fontFamily
 				font.weight: currentWeatherView.fontBold
 				Layout.alignment: Qt.AlignHCenter
