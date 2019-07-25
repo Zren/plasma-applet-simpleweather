@@ -1,5 +1,8 @@
 import QtQuick 2.7
+import QtQuick.Controls 1.0
+import QtQuick.Controls.Private 1.0 as QtQuickControlsPrivate
 import QtQuick.Layouts 1.1
+import QtQuick.Window 2.2
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
@@ -87,6 +90,14 @@ ColumnLayout {
 				height: implicitHeight
 				font.family: currentWeatherView.fontFamily
 				font.weight: currentWeatherView.fontBold
+
+				// Workaround for Issue #9 where Plasma might crash in OpenSuse if
+				// the Text is larger than 320px and using NativeRendering. Manjaro
+				// does not crash, instead it draws nothing.
+				// * https://github.com/Zren/plasma-applet-simpleweather/issues/9
+				// * https://github.com/KDE/plasma-framework/blob/master/src/declarativeimports/plasmacomponents/qml/Label.qml
+				readonly property var plasmaRenderingType: QtQuickControlsPrivate.Settings.isMobile || Screen.devicePixelRatio % 1 !== 0 ? Text.QtRendering : Text.NativeRendering
+				renderType: height > 300 ? Text.QtRendering : plasmaRenderingType
 
 				// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#ff0" }
 			}
