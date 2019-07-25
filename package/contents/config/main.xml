@@ -28,6 +28,15 @@
 		<entry name="forecastFontSize" type="int">
 			<default>12</default>
 		</entry>
+		<entry name="textColor" type="string">
+			<default></default>
+		</entry>
+		<entry name="outlineColor" type="string">
+			<default></default>
+		</entry>
+		<entry name="showOutline" type="bool">
+			<default>false</default>
+		</entry>
 	</group>
 
 </kcfg>

@@ -20,6 +20,11 @@ ColumnLayout {
 	readonly property string fontFamily: plasmoid.configuration.fontFamily || theme.defaultFont.family
 	readonly property var fontBold: plasmoid.configuration.bold ? Font.Bold : Font.Normal
 
+	readonly property color textColor: plasmoid.configuration.textColor || theme.textColor
+	readonly property color outlineColor: plasmoid.configuration.outlineColor || theme.backgroundColor
+
+	readonly property bool showOutline: plasmoid.configuration.showOutline
+
 	readonly property int minMaxFontSize: plasmoid.configuration.minMaxFontSize * units.devicePixelRatio
 	readonly property int forecastFontSize: plasmoid.configuration.forecastFontSize * units.devicePixelRatio
 
@@ -41,6 +46,9 @@ ColumnLayout {
 				font.pixelSize: currentWeatherView.minMaxFontSize
 				font.family: currentWeatherView.fontFamily
 				font.weight: currentWeatherView.fontBold
+				color: currentWeatherView.textColor
+				style: currentWeatherView.showOutline ? Text.Outline : Text.Normal
+				styleColor: currentWeatherView.outlineColor
 				Layout.alignment: Qt.AlignHCenter
 
 				// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
@@ -48,9 +56,11 @@ ColumnLayout {
 
 			Rectangle {
 				visible: !isNaN(weatherData.todaysTempHigh) || !isNaN(weatherData.todaysTempLow)
-				color: theme.textColor
-				implicitWidth: currentWeatherView.minMaxSeparatorWidth
-				implicitHeight: 1 * units.devicePixelRatio
+				color: currentWeatherView.textColor
+				implicitWidth: currentWeatherView.minMaxSeparatorWidth + border.width*2
+				implicitHeight: 1 * units.devicePixelRatio + border.width*2
+				border.width: (currentWeatherView.showOutline ? 1 : 0) * units.devicePixelRatio
+				border.color: currentWeatherView.outlineColor
 				Layout.alignment: Qt.AlignHCenter
 			}
 
@@ -64,6 +74,9 @@ ColumnLayout {
 				font.pixelSize: currentWeatherView.minMaxFontSize
 				font.family: currentWeatherView.fontFamily
 				font.weight: currentWeatherView.fontBold
+				color: currentWeatherView.textColor
+				style: currentWeatherView.showOutline ? Text.Outline : Text.Normal
+				styleColor: currentWeatherView.outlineColor
 				Layout.alignment: Qt.AlignHCenter
 
 				// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
@@ -90,6 +103,9 @@ ColumnLayout {
 				height: implicitHeight
 				font.family: currentWeatherView.fontFamily
 				font.weight: currentWeatherView.fontBold
+				color: currentWeatherView.textColor
+				style: currentWeatherView.showOutline ? Text.Outline : Text.Normal
+				styleColor: currentWeatherView.outlineColor
 
 				// Workaround for Issue #9 where Plasma might crash in OpenSuse if
 				// the Text is larger than 320px and using NativeRendering. Manjaro
@@ -123,6 +139,9 @@ ColumnLayout {
 		font.pixelSize: currentWeatherView.forecastFontSize
 		font.family: currentWeatherView.fontFamily
 		font.weight: currentWeatherView.fontBold
+		color: currentWeatherView.textColor
+		style: currentWeatherView.showOutline ? Text.Outline : Text.Normal
+		styleColor: currentWeatherView.outlineColor
 		Layout.alignment: Qt.AlignHCenter
 
 		// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}

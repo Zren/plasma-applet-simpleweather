@@ -95,6 +95,34 @@ ConfigPage {
 			configKey: "forecastFontSize"
 			suffix: i18nc("font size suffix", "pt")
 		}
+
+		Kirigami.Separator {
+			Kirigami.FormData.isSection: true
+		}
+
+		ConfigColor {
+			Kirigami.FormData.label: i18n("Text:")
+			configKey: "textColor"
+			defaultColor: theme.textColor
+			label: ""
+		}
+
+		ConfigColor {
+			Kirigami.FormData.label: i18n("Outline:")
+			configKey: "outlineColor"
+			defaultColor: theme.backgroundColor
+			label: ""
+
+			property string checkedConfigKey: "showOutline"
+			Kirigami.FormData.checkable: true
+			Kirigami.FormData.checked: checkedConfigKey ? plasmoid.configuration[checkedConfigKey] : false
+			Kirigami.FormData.onCheckedChanged: {
+				if (checkedConfigKey) {
+					plasmoid.configuration[checkedConfigKey] = Kirigami.FormData.checked
+				}
+			}
+			enabled: Kirigami.FormData.checked
+		}
 	}
 
 }
