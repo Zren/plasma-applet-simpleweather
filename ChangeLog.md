@@ -1,6 +1,12 @@
+## v6 - July 24 2019
+
+* Configurable Min/Max Temp & Conditions Font Size (Issue #8)
+* Use Software Rendering with text larger than 300px (Issue #9)
+* Add the ability to change the text color or show a text outline (Issue #11)
+
 ## v5 - May 25 2019
 
-* Center align the current temp/icon when thinner than the forecast text
+* Center align the current temp/icon when thinner than the forecast text.
 * Round current temp to an integer (only envcan needed it).
 * Show the weather source's credits text and link.
 * Brazillian Portegeus translations by @herzenschein (Pull Request #7)
