@@ -20,6 +20,8 @@ ConfigPage {
 	}
 
 	Kirigami.FormLayout {
+		id: formLayout
+
 		Layout.fillWidth: true
 
 		RowLayout {
@@ -94,6 +96,61 @@ ConfigPage {
 			Kirigami.FormData.label: i18n("Condition:")
 			configKey: "forecastFontSize"
 			suffix: i18nc("font size suffix", "pt")
+		}
+
+		// Assume the user cannot edit the file if it's in the root directory.
+		readonly property string layoutFilepath: plasmoid.file("", "ui/CurrentWeatherView.qml")
+		readonly property bool installedAsRoot: layoutFilepath.indexOf('/usr/share/plasma/plasmoids/') == 0
+		property bool showAdvancedSection: !installedAsRoot
+
+		Kirigami.Separator {
+			visible: formLayout.showAdvancedSection
+			Kirigami.FormData.label: i18n("Advanced")
+			Kirigami.FormData.isSection: true
+		}
+
+		Button {
+			visible: formLayout.showAdvancedSection
+			Kirigami.FormData.label: i18n("Edit Layout:")
+			iconName: "editor"
+			text: i18n("Open Layout File")
+
+			onClicked: {
+				Qt.openUrlExternally(formLayout.layoutFilepath)
+			}
+		}
+		// Label {
+		// 	text: formLayout.layoutFilepath
+		// }
+
+		readonly property var testCommand: "plasmawindowed " + plasmoid.pluginName
+		Button {
+			visible: formLayout.showAdvancedSection
+			Kirigami.FormData.label: i18n("Test Layout:")
+			iconName: "run-build"
+			text: i18n("Test Widget")
+
+			onClicked: {
+				executable.exec(formLayout.testCommand)
+			}
+
+			PlasmaCore.DataSource {
+				id: executable
+				engine: "executable"
+				connectedSources: []
+				onNewData: disconnectSource(sourceName) // cmd finished
+				function exec(cmd) {
+					connectSource(cmd)
+				}
+			}
+		}
+		// Label {
+		// 	text: formLayout.testCommand
+		// }
+
+		Label {
+			Kirigami.FormData.label: i18n("Reload Layout:")
+			text: i18n("To reload the widget on your desktop, logout then back login.")
 		}
 	}
 
