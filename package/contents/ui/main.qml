@@ -13,6 +13,10 @@ Item {
 		id: weatherData
 	}
 
+	// Uncomment to test a specific size (Desktop Widget only)
+	// width: 400
+	// height: 400
+
 	Plasmoid.icon: weatherData.currentConditionIconName
 	Plasmoid.toolTipMainText: weatherData.currentConditions
 
