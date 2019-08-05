@@ -37,7 +37,7 @@ Or if you know how to make a pull request
 | Template |      12 |       |
 | de       |    3/12 |   25% |
 | el       |    3/12 |   25% |
-| es       |    3/12 |   25% |
+| es       |   12/12 |  100% |
 | fr       |    3/12 |   25% |
 | id       |    3/12 |   25% |
 | ko       |    3/12 |   25% |
