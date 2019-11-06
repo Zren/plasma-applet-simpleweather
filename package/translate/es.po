@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: simpleweather\n"
 "Report-Msgid-Bugs-To: https://github.com/Zren/plasma-applet-simpleweather\n"
-"POT-Creation-Date: 2019-07-24 21:43-0400\n"
+"POT-Creation-Date: 2019-11-06 10:55-0500\n"
 "PO-Revision-Date: 2019-08-06 01:04+0200\n"
 "Last-Translator: Iyán Méndez Veiga <me@iyanmv.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -21,40 +21,43 @@ msgstr ""
 msgid "General"
 msgstr "General"
 
-#: ../contents/ui/config/ConfigGeneral.qml:65
+#: ../contents/ui/config/ConfigGeneral.qml:35
 msgid "Show weather warnings"
 msgstr "Mostrar alertas climatológicas"
 
-#: ../contents/ui/config/ConfigGeneral.qml:70
+#: ../contents/ui/config/ConfigGeneral.qml:40
 msgid "Desktop Widget: Show background"
 msgstr "Widget de escritorio: mostrar fondo"
 
-#: ../contents/ui/config/ConfigGeneral.qml:78
+#: ../contents/ui/config/ConfigGeneral.qml:48
 msgid "Font Family:"
 msgstr "Familia tipográfica:"
 
-#: ../contents/ui/config/ConfigGeneral.qml:88
+#: ../contents/ui/config/ConfigGeneral.qml:58
 msgid "Min/Max Temp:"
 msgstr "Temperatura mín/máx:"
 
-#: ../contents/ui/config/ConfigGeneral.qml:90 ../contents/ui/config/ConfigGeneral.qml:96
+#: ../contents/ui/config/ConfigGeneral.qml:60
+#: ../contents/ui/config/ConfigGeneral.qml:66
 msgctxt "font size suffix"
 msgid "pt"
 msgstr "pt"
 
-#: ../contents/ui/config/ConfigGeneral.qml:94
+#: ../contents/ui/config/ConfigGeneral.qml:64
 msgid "Condition:"
 msgstr "Estado:"
 
-#: ../contents/ui/config/ConfigGeneral.qml:104
+#: ../contents/ui/config/ConfigGeneral.qml:74
 msgid "Text:"
 msgstr "Texto:"
 
-#: ../contents/ui/config/ConfigGeneral.qml:111
+#: ../contents/ui/config/ConfigGeneral.qml:81
 msgid "Outline:"
 msgstr "Contorno:"
 
-#: ../contents/ui/CurrentWeatherView.qml:43 ../contents/ui/CurrentWeatherView.qml:71 ../contents/ui/CurrentWeatherView.qml:99
+#: ../contents/ui/CurrentWeatherView.qml:43
+#: ../contents/ui/CurrentWeatherView.qml:71
+#: ../contents/ui/CurrentWeatherView.qml:99
 msgid "%1°"
 msgstr "%1°"
 

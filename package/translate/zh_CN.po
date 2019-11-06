@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: simpleweather\n"
 "Report-Msgid-Bugs-To: https://github.com/Zren/plasma-applet-simpleweather\n"
-"POT-Creation-Date: 2019-07-24 21:43-0400\n"
+"POT-Creation-Date: 2019-11-06 10:55-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,36 +19,36 @@ msgstr ""
 msgid "General"
 msgstr "一般"
 
-#: ../contents/ui/config/ConfigGeneral.qml:65
+#: ../contents/ui/config/ConfigGeneral.qml:35
 msgid "Show weather warnings"
 msgstr ""
 
-#: ../contents/ui/config/ConfigGeneral.qml:70
+#: ../contents/ui/config/ConfigGeneral.qml:40
 msgid "Desktop Widget: Show background"
 msgstr "桌面小部件: 显示背景"
 
-#: ../contents/ui/config/ConfigGeneral.qml:78
+#: ../contents/ui/config/ConfigGeneral.qml:48
 msgid "Font Family:"
 msgstr ""
 
-#: ../contents/ui/config/ConfigGeneral.qml:88
+#: ../contents/ui/config/ConfigGeneral.qml:58
 msgid "Min/Max Temp:"
 msgstr ""
 
-#: ../contents/ui/config/ConfigGeneral.qml:90 ../contents/ui/config/ConfigGeneral.qml:96
+#: ../contents/ui/config/ConfigGeneral.qml:60 ../contents/ui/config/ConfigGeneral.qml:66
 msgctxt "font size suffix"
 msgid "pt"
 msgstr ""
 
-#: ../contents/ui/config/ConfigGeneral.qml:94
+#: ../contents/ui/config/ConfigGeneral.qml:64
 msgid "Condition:"
 msgstr ""
 
-#: ../contents/ui/config/ConfigGeneral.qml:104
+#: ../contents/ui/config/ConfigGeneral.qml:74
 msgid "Text:"
 msgstr ""
 
-#: ../contents/ui/config/ConfigGeneral.qml:111
+#: ../contents/ui/config/ConfigGeneral.qml:81
 msgid "Outline:"
 msgstr ""
 
