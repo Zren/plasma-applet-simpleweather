@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.0
 import org.kde.plasma.core 2.0 as PlasmaCore
 
 import org.kde.kirigami 2.3 as Kirigami
+import org.kde.plasma.private.weather 1.0 as WeatherPlugin
 
 import "../lib"
 import "../lib/weather"
@@ -39,6 +40,25 @@ ConfigPage {
 		ConfigCheckBox {
 			configKey: "showBackground"
 			text: i18n("Desktop Widget: Show background")
+		}
+
+		Kirigami.Separator {
+			Kirigami.FormData.isSection: true
+		}
+
+		ConfigUnitComboBox {
+			id: temperatureComboBox
+			configKey: 'temperatureUnitId'
+			Kirigami.FormData.label: i18ndc("plasma_applet_org.kde.plasma.weather", "@label:listbox", "Temperature:")
+			model: WeatherPlugin.TemperatureUnitListModel
+
+			DisplayUnits { id: displayUnits }
+			function serializeWith(nextValue) {
+				displayUnits.setTemperatureUnitId(nextValue)
+			}
+			Component.onCompleted: {
+				temperatureComboBox.populateWith(displayUnits.temperatureUnitId)
+			}
 		}
 
 		Kirigami.Separator {
