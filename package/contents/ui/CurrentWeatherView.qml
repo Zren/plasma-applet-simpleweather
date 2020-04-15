@@ -2,28 +2,15 @@ import QtQuick 2.7
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Private 1.0 as QtQuickControlsPrivate
 import QtQuick.Layouts 1.1
-import QtQuick.Window 2.2
-import org.kde.plasma.plasmoid 2.0
+import QtQuick.Window 2.2 // Screen
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
-
-import org.kde.plasma.private.weather 1.0 as WeatherPlugin
 
 ColumnLayout {
 	id: currentWeatherView
 
+	//--- Settings
 	spacing: 0
-
-	opacity: weatherData.hasData ? 1 : 0
-	Behavior on opacity { NumberAnimation { duration: 1000 } }
-
-	readonly property string fontFamily: plasmoid.configuration.fontFamily || theme.defaultFont.family
-	readonly property var fontBold: plasmoid.configuration.bold ? Font.Bold : Font.Normal
-
-	readonly property color textColor: plasmoid.configuration.textColor || theme.textColor
-	readonly property color outlineColor: plasmoid.configuration.outlineColor || theme.backgroundColor
-
-	readonly property bool showOutline: plasmoid.configuration.showOutline
 
 	readonly property int minMaxFontSize: plasmoid.configuration.minMaxFontSize * units.devicePixelRatio
 	readonly property int forecastFontSize: plasmoid.configuration.forecastFontSize * units.devicePixelRatio
@@ -31,24 +18,19 @@ ColumnLayout {
 	readonly property int minMaxSeparatorWidth: minMaxFontSize * 1.4
 
 
+	//--- Layout
 	RowLayout {
 		spacing: units.smallSpacing
 
 		ColumnLayout {
 			spacing: units.smallSpacing
 
-			PlasmaComponents.Label {
+			WLabel {
 				readonly property var value: weatherData.todaysTempHigh
 				readonly property bool hasValue: !isNaN(value)
-				text: hasValue ? i18n("%1°", value) : ""
+				text: hasValue ? weatherData.formatTempShort(value) : ""
 				Layout.preferredWidth: hasValue ? implicitWidth : 0
-				font.pointSize: -1
 				font.pixelSize: currentWeatherView.minMaxFontSize
-				font.family: currentWeatherView.fontFamily
-				font.weight: currentWeatherView.fontBold
-				color: currentWeatherView.textColor
-				style: currentWeatherView.showOutline ? Text.Outline : Text.Normal
-				styleColor: currentWeatherView.outlineColor
 				Layout.alignment: Qt.AlignHCenter
 
 				// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
@@ -56,27 +38,21 @@ ColumnLayout {
 
 			Rectangle {
 				visible: !isNaN(weatherData.todaysTempHigh) || !isNaN(weatherData.todaysTempLow)
-				color: currentWeatherView.textColor
+				color: forecastLayout.textColor
 				implicitWidth: currentWeatherView.minMaxSeparatorWidth + border.width*2
 				implicitHeight: 1 * units.devicePixelRatio + border.width*2
-				border.width: (currentWeatherView.showOutline ? 1 : 0) * units.devicePixelRatio
-				border.color: currentWeatherView.outlineColor
+				border.width: (forecastLayout.showOutline ? 1 : 0) * units.devicePixelRatio
+				border.color: forecastLayout.outlineColor
 				Layout.alignment: Qt.AlignHCenter
 			}
 
 
-			PlasmaComponents.Label {
+			WLabel {
 				readonly property var value: weatherData.todaysTempLow
 				readonly property bool hasValue: !isNaN(value)
-				text: hasValue ? i18n("%1°", value) : ""
+				text: hasValue ? weatherData.formatTempShort(value) : ""
 				Layout.preferredWidth: hasValue ? implicitWidth : 0
-				font.pointSize: -1
 				font.pixelSize: currentWeatherView.minMaxFontSize
-				font.family: currentWeatherView.fontFamily
-				font.weight: currentWeatherView.fontBold
-				color: currentWeatherView.textColor
-				style: currentWeatherView.showOutline ? Text.Outline : Text.Normal
-				styleColor: currentWeatherView.outlineColor
 				Layout.alignment: Qt.AlignHCenter
 
 				// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
@@ -91,21 +67,15 @@ ColumnLayout {
 			Layout.fillHeight: true
 
 			// Note: wettercom does not have a current temp
-			PlasmaComponents.Label {
+			WLabel {
 				id: currentTempLabel
 				anchors.centerIn: parent
 				readonly property var value: weatherData.currentTemp
 				readonly property bool hasValue: !isNaN(value)
-				text: hasValue ? i18n("%1°", Math.round(value)) : ""
+				text: hasValue ? weatherData.formatTempShort(value) : ""
 				fontSizeMode: Text.FixedSize
-				font.pointSize: -1
 				font.pixelSize: parent.height
 				height: implicitHeight
-				font.family: currentWeatherView.fontFamily
-				font.weight: currentWeatherView.fontBold
-				color: currentWeatherView.textColor
-				style: currentWeatherView.showOutline ? Text.Outline : Text.Normal
-				styleColor: currentWeatherView.outlineColor
 
 				// Workaround for Issue #9 where Plasma might crash in OpenSuse if
 				// the Text is larger than 320px and using NativeRendering. Manjaro
@@ -133,16 +103,21 @@ ColumnLayout {
 		}
 	}
 
-	PlasmaComponents.Label {
+	WLabel {
+		id: currentConditionsLabel
 		text: weatherData.todaysForecastLabel
-		font.pointSize: -1
 		font.pixelSize: currentWeatherView.forecastFontSize
-		font.family: currentWeatherView.fontFamily
-		font.weight: currentWeatherView.fontBold
-		color: currentWeatherView.textColor
-		style: currentWeatherView.showOutline ? Text.Outline : Text.Normal
-		styleColor: currentWeatherView.outlineColor
-		Layout.alignment: Qt.AlignHCenter
+		horizontalAlignment: Text.AlignHCenter
+
+		Layout.fillWidth: true
+		Layout.preferredWidth: 160 * units.devicePixelRatio
+		elide: Text.ElideRight
+
+		PlasmaCore.ToolTipArea {
+			anchors.fill: parent
+			mainText: currentConditionsLabel.text
+			enabled: currentConditionsLabel.truncated
+		}
 
 		// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#f00"}
 	}

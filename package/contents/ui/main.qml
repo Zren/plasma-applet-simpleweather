@@ -15,10 +15,6 @@ Item {
 		id: weatherData
 	}
 
-	// Uncomment to test a specific size (Desktop Widget only)
-	// width: 400
-	// height: 400
-
 	Plasmoid.icon: weatherData.currentConditionIconName
 	Plasmoid.toolTipMainText: weatherData.currentConditions
 
@@ -27,10 +23,10 @@ Item {
 		Plasmoid.backgroundHints: isDesktopContainment && !plasmoid.configuration.showBackground ? PlasmaCore.Types.NoBackground : PlasmaCore.Types.DefaultBackground
 
 		property Item contentItem: weatherData.needsConfiguring ? configureButton : forecastLayout
-		implicitWidth: contentItem.implicitWidth
-		implicitHeight: contentItem.implicitHeight
-		Layout.minimumWidth: implicitWidth
-		Layout.minimumHeight: implicitHeight
+		Layout.preferredWidth: 200 * units.devicePixelRatio
+		Layout.preferredHeight: 150 * units.devicePixelRatio
+		width: Layout.preferredWidth
+		height: Layout.preferredHeight
 
 		PlasmaComponents.Button {
 			id: configureButton
@@ -40,39 +36,21 @@ Item {
 			onClicked: plasmoid.action("configure").trigger()
 		}
 
-		ColumnLayout {
+		ForecastLayout {
 			id: forecastLayout
 			anchors.fill: parent
-			spacing: units.smallSpacing
-
-			CurrentWeatherView {
-				id: currentWeatherView
-				Layout.alignment: Qt.AlignHCenter
-			}
-
-			NoticesListView {
-				Layout.fillWidth: true
-				model: weatherData.watchesModel
-				readonly property bool showWatches: plasmoid.configuration.showWarnings
-				visible: showWatches && model.length > 0
-				state: "Watches"
-				horizontalAlignment: Text.AlignHCenter
-			}
-
-			NoticesListView {
-				Layout.fillWidth: true
-				model: weatherData.warningsModel
-				readonly property bool showWarnings: plasmoid.configuration.showWarnings
-				visible: showWarnings && model.length > 0
-				state: "Warnings"
-				horizontalAlignment: Text.AlignHCenter
-			}
+			visible: !weatherData.needsConfiguring
 		}
 
 	}
 
+	function action_refresh() {
+		weatherData.refresh()
+	}
 
 	Component.onCompleted: {
+		plasmoid.setAction("refresh", i18n("Refresh"), "view-refresh")
+
 		// plasmoid.action("configure").trigger()
 	}
 }
