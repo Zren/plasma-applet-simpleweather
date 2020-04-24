@@ -64,7 +64,7 @@ msgctxt "Use default font"
 msgid "Default"
 msgstr "Standaard"
 
-#: ../contents/ui/lib/weather/WeatherData.qml
+#: ../contents/ui/libweather/WeatherData.qml
 msgid "Wind:"
 msgstr "Wind:"
 

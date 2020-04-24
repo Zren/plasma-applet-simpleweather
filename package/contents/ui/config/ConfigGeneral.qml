@@ -7,7 +7,7 @@ import org.kde.kirigami 2.3 as Kirigami
 import org.kde.plasma.private.weather 1.0 as WeatherPlugin
 
 import "../lib"
-import "../lib/weather"
+import "../libweather"
 
 ConfigPage {
 	id: page
