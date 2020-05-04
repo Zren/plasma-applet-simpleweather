@@ -1,3 +1,11 @@
+## v7 - May 4 2020
+
+* Add ability to change Temp units.
+* Update WeatherLib.
+* Fix scrollbar overlap in settings.
+* Updated Spanish translation by @iyanmv (Pull Request #14)
+* Updated Dutch translation by @Vistaus (Pull Request #13 + #16)
+
 ## v6 - July 24 2019
 
 * Configurable Min/Max Temp & Conditions Font Size (Issue #8)
