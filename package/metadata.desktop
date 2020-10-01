@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Simple Weather
-Comment=
+Comment=Show current temp/forecast and today's min/max temp.
 
 Type=Service
 Icon=weather-clear
