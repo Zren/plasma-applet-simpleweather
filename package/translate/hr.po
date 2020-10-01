@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../metadata.desktop
 msgid "Simple Weather"
-msgstr ""
+msgstr "Jednostavno Vrijeme"
 
 #: ../metadata.desktop
 msgid "Show current temp/forecast and today's min/max temp."
-msgstr ""
+msgstr "Prikaži trenutnu temperaturu/prognozu i današnju min/max temperaturu."
 
 #: ../contents/config/config.qml
 msgid "General"
