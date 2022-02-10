@@ -1,10 +1,8 @@
 import QtQuick 2.7
-import QtQuick.Controls 1.0
 import QtQuick.Controls.Private 1.0 as QtQuickControlsPrivate
 import QtQuick.Layouts 1.1
 import QtQuick.Window 2.2 // Screen
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
 
 ColumnLayout {
 	id: currentWeatherView
@@ -12,18 +10,18 @@ ColumnLayout {
 	//--- Settings
 	spacing: 0
 
-	readonly property int minMaxFontSize: plasmoid.configuration.minMaxFontSize * units.devicePixelRatio
-	readonly property int forecastFontSize: plasmoid.configuration.forecastFontSize * units.devicePixelRatio
+	readonly property int minMaxFontSize: plasmoid.configuration.minMaxFontSize * PlasmaCore.Units.devicePixelRatio
+	readonly property int forecastFontSize: plasmoid.configuration.forecastFontSize * PlasmaCore.Units.devicePixelRatio
 
 	readonly property int minMaxSeparatorWidth: minMaxFontSize * 1.4
 
 
 	//--- Layout
 	RowLayout {
-		spacing: units.smallSpacing
+		spacing: PlasmaCore.Units.smallSpacing
 
 		ColumnLayout {
-			spacing: units.smallSpacing
+			spacing: PlasmaCore.Units.smallSpacing
 
 			WLabel {
 				readonly property var value: weatherData.todaysTempHigh
@@ -40,8 +38,8 @@ ColumnLayout {
 				visible: !isNaN(weatherData.todaysTempHigh) || !isNaN(weatherData.todaysTempLow)
 				color: forecastLayout.textColor
 				implicitWidth: currentWeatherView.minMaxSeparatorWidth + border.width*2
-				implicitHeight: 1 * units.devicePixelRatio + border.width*2
-				border.width: (forecastLayout.showOutline ? 1 : 0) * units.devicePixelRatio
+				implicitHeight: 1 * PlasmaCore.Units.devicePixelRatio + border.width*2
+				border.width: (forecastLayout.showOutline ? 1 : 0) * PlasmaCore.Units.devicePixelRatio
 				border.color: forecastLayout.outlineColor
 				Layout.alignment: Qt.AlignHCenter
 			}
@@ -62,7 +60,7 @@ ColumnLayout {
 		Item {
 			implicitWidth: currentTempLabel.hasValue ? currentTempLabel.contentWidth : currentForecastIcon.implicitWidth
 			Layout.minimumWidth: implicitWidth
-			Layout.minimumHeight: 18 * units.devicePixelRatio
+			Layout.minimumHeight: 18 * PlasmaCore.Units.devicePixelRatio
 			Layout.alignment: Qt.AlignHCenter
 			Layout.fillHeight: true
 
@@ -110,7 +108,7 @@ ColumnLayout {
 		horizontalAlignment: Text.AlignHCenter
 
 		Layout.fillWidth: true
-		Layout.preferredWidth: 160 * units.devicePixelRatio
+		Layout.preferredWidth: 160 * PlasmaCore.Units.devicePixelRatio
 		elide: Text.ElideRight
 
 		PlasmaCore.ToolTipArea {
