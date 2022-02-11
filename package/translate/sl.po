@@ -74,6 +74,3 @@ msgstr "Veter:"
 #: ../contents/ui/main.qml
 msgid "Refresh"
 msgstr "Osveži"
-
-#~ msgid "<b>Version:</b> %1"
-#~ msgstr "<b>Različica:</b> %1"

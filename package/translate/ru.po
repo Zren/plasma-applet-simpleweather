@@ -29,7 +29,7 @@ msgstr "Главная"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Show weather warnings"
-msgstr ""
+msgstr "Показывать погодные предупреждения"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Desktop Widget: Show background"
@@ -41,7 +41,7 @@ msgstr ""
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Min/Max Temp:"
-msgstr ""
+msgstr "Min/Max температура:"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgctxt "font size suffix"
@@ -54,11 +54,11 @@ msgstr ""
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Text:"
-msgstr ""
+msgstr "Текст:"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Outline:"
-msgstr ""
+msgstr "Контур:"
 
 #: ../contents/ui/libconfig/FontFamily.qml
 msgctxt "Use default font"
@@ -67,11 +67,8 @@ msgstr ""
 
 #: ../contents/ui/libweather/WeatherData.qml
 msgid "Wind:"
-msgstr ""
+msgstr "Ветер:"
 
 #: ../contents/ui/main.qml
 msgid "Refresh"
 msgstr "Обновить"
-
-#~ msgid "<b>Version:</b> %1"
-#~ msgstr "<b>Версия:</b> %1"

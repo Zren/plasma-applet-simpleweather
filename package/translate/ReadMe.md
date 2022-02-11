@@ -46,7 +46,7 @@ Or if you know how to make a pull request
 | nl       |   12/14 |   85% |
 | pl       |    4/14 |   28% |
 | pt_BR    |    6/14 |   42% |
-| ru       |    3/14 |   21% |
+| ru       |    8/14 |   57% |
 | sl       |   14/14 |  100% |
 | uk       |    4/14 |   28% |
 | zh_CN    |    4/14 |   28% |

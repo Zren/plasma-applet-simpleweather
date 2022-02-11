@@ -74,6 +74,3 @@ msgstr ""
 #: ../contents/ui/main.qml
 msgid "Refresh"
 msgstr "Refrescar"
-
-#~ msgid "<b>Version:</b> %1"
-#~ msgstr "<b>Versión:</b> %1"
