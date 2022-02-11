@@ -1,5 +1,5 @@
 # Translation of simpleweather in LANGUAGE
-# Copyright (C) 2021
+# Copyright (C) 2022
 # This file is distributed under the same license as the simpleweather package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: simpleweather\n"
 "Report-Msgid-Bugs-To: https://github.com/Zren/plasma-applet-simpleweather\n"
-"POT-Creation-Date: 2021-07-30 15:08-0400\n"
+"POT-Creation-Date: 2022-02-10 19:27-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,11 +62,7 @@ msgstr ""
 msgid "Outline:"
 msgstr ""
 
-#: ../contents/ui/lib/AppletVersion.qml
-msgid "<b>Version:</b> %1"
-msgstr ""
-
-#: ../contents/ui/lib/ConfigFontFamily.qml
+#: ../contents/ui/libconfig/FontFamily.qml
 msgctxt "Use default font"
 msgid "Default"
 msgstr ""
