@@ -1,5 +1,4 @@
 import QtQuick
-import QtQuick.Controls.Private as QtQuickControlsPrivate
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.core as PlasmaCore
@@ -75,13 +74,13 @@ ColumnLayout {
 				font.pixelSize: parent.height
 				height: implicitHeight
 
-				// Workaround for Issue #9 where Plasma might crash in OpenSuse if
+				// [Qt5/Plasma5] Workaround for Issue #9 where Plasma might crash in OpenSuse if
 				// the Text is larger than 320px and using NativeRendering. Manjaro
 				// does not crash, instead it draws nothing.
 				// * https://github.com/Zren/plasma-applet-simpleweather/issues/9
 				// * https://github.com/KDE/plasma-framework/blob/master/src/declarativeimports/plasmacomponents/qml/Label.qml
-				readonly property var plasmaRenderingType: QtQuickControlsPrivate.Settings.isMobile || Screen.devicePixelRatio % 1 !== 0 ? Text.QtRendering : Text.NativeRendering
-				renderType: height > 300 ? Text.QtRendering : plasmaRenderingType
+				// readonly property var plasmaRenderingType: QtQuickControlsPrivate.Settings.isMobile || Screen.devicePixelRatio % 1 !== 0 ? Text.QtRendering : Text.NativeRendering
+				// renderType: height > 300 ? Text.QtRendering : plasmaRenderingType
 
 				// Rectangle { anchors.fill: parent; color: "transparent"; border.width: 1; border.color: "#ff0" }
 			}
