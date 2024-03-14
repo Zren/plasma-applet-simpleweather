@@ -10,11 +10,13 @@
 		"Category": "Environment and Weather",
 		"Description": "Show current temp/forecast and today's min/max temp.",
 		"Description[hr]": "Prikaži trenutnu temperaturu/prognozu i današnju min/max temperaturu.",
+		"Description[nl]": "Toon de huidige temperatuur, voorspelling en minimum-/maximumtemperatuur",
 		"Description[sl]": "Prikaži trenutno temp./napoved in današnjo min./max. temperaturo.",
 		"Icon": "weather-clear",
 		"Id": "com.github.zren.simpleweather",
 		"Name": "Simple Weather",
 		"Name[hr]": "Jednostavno Vrijeme",
+		"Name[nl]": "Eenvoudig weerbericht",
 		"Name[sl]": "Preprosto vreme",
 		"Version": "8",
 		"Website": "https://github.com/Zren/plasma-applet-simpleweather"

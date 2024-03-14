@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: simpleweather\n"
 "Report-Msgid-Bugs-To: https://github.com/Zren/plasma-applet-simpleweather\n"
-"POT-Creation-Date: 2022-02-10 19:27-0500\n"
+"POT-Creation-Date: 2024-03-13 22:34-0400\n"
 "PO-Revision-Date: 2022-02-14 13:29+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -18,13 +18,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: ../metadata.desktop
+#: ../metadata.json
 msgid "Simple Weather"
 msgstr "Eenvoudig weerbericht"
 
-#: ../metadata.desktop
+#: ../metadata.json
 msgid "Show current temp/forecast and today's min/max temp."
-msgstr "Toon de huidige temperatuur, voorspelling en minimum-/maximumtemperatuur"
+msgstr ""
+"Toon de huidige temperatuur, voorspelling en minimum-/maximumtemperatuur"
 
 #: ../contents/config/config.qml
 msgid "General"
