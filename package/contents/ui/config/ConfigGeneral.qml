@@ -8,7 +8,7 @@ import org.kde.plasma.private.weather 1.0 as WeatherPlugin
 import "../libweather" as LibWeather
 import "../libconfig" as LibConfig
 
-Kirigami.FormLayout {
+LibConfig.FormKCM {
 	Layout.fillWidth: true
 
 	LibWeather.ConfigWeatherStationPicker {
