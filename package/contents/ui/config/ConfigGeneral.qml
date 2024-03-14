@@ -1,9 +1,9 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.0 as QQC2
-import QtQuick.Layouts 1.0
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.kirigami 2.5 as Kirigami
-import org.kde.plasma.private.weather 1.0 as WeatherPlugin
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+import org.kde.plasma.core as PlasmaCore
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.private.weather as WeatherPlugin
 
 import "../libweather" as LibWeather
 import "../libconfig" as LibConfig
@@ -70,7 +70,7 @@ LibConfig.FormKCM {
 	LibConfig.ColorField {
 		Kirigami.FormData.label: i18n("Text:")
 		configKey: "textColor"
-		defaultColor: PlasmaCore.Theme.textColor
+		defaultColor: Kirigami.Theme.textColor
 	}
 
 
@@ -84,7 +84,7 @@ LibConfig.FormKCM {
 		LibConfig.ColorField {
 			Layout.fillWidth: true
 			configKey: "outlineColor"
-			defaultColor: PlasmaCore.Theme.backgroundColor
+			defaultColor: Kirigami.Theme.backgroundColor
 			enabled: showOutline.checked
 		}
 	}

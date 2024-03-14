@@ -1,8 +1,8 @@
-import QtQuick 2.7
-import QtQuick.Controls.Private 1.0 as QtQuickControlsPrivate
-import QtQuick.Layouts 1.1
-import QtQuick.Window 2.2 // Screen
-import org.kde.plasma.core 2.0 as PlasmaCore
+import QtQuick
+import QtQuick.Controls.Private as QtQuickControlsPrivate
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.core as PlasmaCore
 
 ColumnLayout {
 	id: currentWeatherView
@@ -10,18 +10,18 @@ ColumnLayout {
 	//--- Settings
 	spacing: 0
 
-	readonly property int minMaxFontSize: plasmoid.configuration.minMaxFontSize * PlasmaCore.Units.devicePixelRatio
-	readonly property int forecastFontSize: plasmoid.configuration.forecastFontSize * PlasmaCore.Units.devicePixelRatio
+	readonly property int minMaxFontSize: plasmoid.configuration.minMaxFontSize * Screen.devicePixelRatio
+	readonly property int forecastFontSize: plasmoid.configuration.forecastFontSize * Screen.devicePixelRatio
 
 	readonly property int minMaxSeparatorWidth: minMaxFontSize * 1.4
 
 
 	//--- Layout
 	RowLayout {
-		spacing: PlasmaCore.Units.smallSpacing
+		spacing: Kirigami.Units.smallSpacing
 
 		ColumnLayout {
-			spacing: PlasmaCore.Units.smallSpacing
+			spacing: Kirigami.Units.smallSpacing
 
 			WLabel {
 				readonly property var value: weatherData.todaysTempHigh
@@ -38,8 +38,8 @@ ColumnLayout {
 				visible: !isNaN(weatherData.todaysTempHigh) || !isNaN(weatherData.todaysTempLow)
 				color: forecastLayout.textColor
 				implicitWidth: currentWeatherView.minMaxSeparatorWidth + border.width*2
-				implicitHeight: 1 * PlasmaCore.Units.devicePixelRatio + border.width*2
-				border.width: (forecastLayout.showOutline ? 1 : 0) * PlasmaCore.Units.devicePixelRatio
+				implicitHeight: 1 * Screen.devicePixelRatio + border.width*2
+				border.width: (forecastLayout.showOutline ? 1 : 0) * Screen.devicePixelRatio
 				border.color: forecastLayout.outlineColor
 				Layout.alignment: Qt.AlignHCenter
 			}
@@ -60,7 +60,7 @@ ColumnLayout {
 		Item {
 			implicitWidth: currentTempLabel.hasValue ? currentTempLabel.contentWidth : currentForecastIcon.implicitWidth
 			Layout.minimumWidth: implicitWidth
-			Layout.minimumHeight: 18 * PlasmaCore.Units.devicePixelRatio
+			Layout.minimumHeight: 18 * Screen.devicePixelRatio
 			Layout.alignment: Qt.AlignHCenter
 			Layout.fillHeight: true
 
@@ -87,7 +87,7 @@ ColumnLayout {
 			}
 
 			// Note: wettercom does not have a current temp so use an icon instead
-			PlasmaCore.IconItem {
+			Kirigami.Icon {
 				id: currentForecastIcon
 				anchors.centerIn: parent
 				implicitWidth: parent.height
@@ -108,7 +108,7 @@ ColumnLayout {
 		horizontalAlignment: Text.AlignHCenter
 
 		Layout.fillWidth: true
-		Layout.preferredWidth: 160 * PlasmaCore.Units.devicePixelRatio
+		Layout.preferredWidth: 160 * Screen.devicePixelRatio
 		elide: Text.ElideRight
 
 		PlasmaCore.ToolTipArea {
