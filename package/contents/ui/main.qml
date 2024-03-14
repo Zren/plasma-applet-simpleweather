@@ -18,7 +18,7 @@ PlasmoidItem {
 
 	fullRepresentation: Item {
 		readonly property bool isDesktopContainment: plasmoid.location == PlasmaCore.Types.Floating
-		Plasmoid.backgroundHints: isDesktopContainment && !plasmoid.configuration.showBackground ? PlasmaCore.Types.NoBackground : PlasmaCore.Types.DefaultBackground
+		Plasmoid.backgroundHints: PlasmaCore.Types.ShadowBackground | PlasmaCore.Types.ConfigurableBackground
 
 		property Item contentItem: weatherData.needsConfiguring ? configureButton : forecastLayout
 		Layout.preferredWidth: 200 * Screen.devicePixelRatio

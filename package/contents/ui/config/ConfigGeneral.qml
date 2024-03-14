@@ -32,10 +32,7 @@ LibConfig.FormKCM {
 		text: i18n("Show weather warnings")
 	}
 
-	LibConfig.CheckBox {
-		configKey: "showBackground"
-		text: i18n("Desktop Widget: Show background")
-	}
+	LibConfig.BackgroundToggle {}
 
 	Kirigami.Separator {
 		Kirigami.FormData.isSection: true
