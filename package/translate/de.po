@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: simpleweather\n"
 "Report-Msgid-Bugs-To: https://github.com/Zren/plasma-applet-simpleweather\n"
-"POT-Creation-Date: 2024-03-13 22:34-0400\n"
+"POT-Creation-Date: 2024-03-13 23:16-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,10 +30,6 @@ msgstr "Allgemein"
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Show weather warnings"
 msgstr ""
-
-#: ../contents/ui/config/ConfigGeneral.qml
-msgid "Desktop Widget: Show background"
-msgstr "Desktop Element: Hintergrund sichtbar"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Font Family:"
@@ -60,6 +56,10 @@ msgstr ""
 msgid "Outline:"
 msgstr ""
 
+#: ../contents/ui/libconfig/BackgroundToggle.qml
+msgid "Desktop Widget:"
+msgstr "Desktop Element:"
+
 #: ../contents/ui/libconfig/FontFamily.qml
 msgctxt "Use default font"
 msgid "Default"
@@ -72,3 +72,6 @@ msgstr ""
 #: ../contents/ui/main.qml
 msgid "Refresh"
 msgstr "Auffrischen"
+
+#~ msgid "Desktop Widget: Show background"
+#~ msgstr "Desktop Element: Hintergrund sichtbar"

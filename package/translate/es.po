@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: simpleweather\n"
 "Report-Msgid-Bugs-To: https://github.com/Zren/plasma-applet-simpleweather\n"
-"POT-Creation-Date: 2024-03-13 22:34-0400\n"
+"POT-Creation-Date: 2024-03-13 23:16-0400\n"
 "PO-Revision-Date: 2019-08-06 01:04+0200\n"
 "Last-Translator: Iyán Méndez Veiga <me@iyanmv.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -34,10 +34,6 @@ msgid "Show weather warnings"
 msgstr "Mostrar alertas climatológicas"
 
 #: ../contents/ui/config/ConfigGeneral.qml
-msgid "Desktop Widget: Show background"
-msgstr "Widget de escritorio: mostrar fondo"
-
-#: ../contents/ui/config/ConfigGeneral.qml
 msgid "Font Family:"
 msgstr "Familia tipográfica:"
 
@@ -62,6 +58,10 @@ msgstr "Texto:"
 msgid "Outline:"
 msgstr "Contorno:"
 
+#: ../contents/ui/libconfig/BackgroundToggle.qml
+msgid "Desktop Widget:"
+msgstr "Widget de escritorio:"
+
 #: ../contents/ui/libconfig/FontFamily.qml
 msgctxt "Use default font"
 msgid "Default"
@@ -74,3 +74,6 @@ msgstr ""
 #: ../contents/ui/main.qml
 msgid "Refresh"
 msgstr "Refrescar"
+
+#~ msgid "Desktop Widget: Show background"
+#~ msgstr "Widget de escritorio: mostrar fondo"

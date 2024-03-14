@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: simpleweather\n"
 "Report-Msgid-Bugs-To: https://github.com/Zren/plasma-applet-simpleweather\n"
-"POT-Creation-Date: 2024-03-13 22:34-0400\n"
+"POT-Creation-Date: 2024-03-13 23:16-0400\n"
 "PO-Revision-Date: 2021-07-29 15:06+0200\n"
 "Last-Translator: Ugo Ugowsky <ugowsky@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -34,10 +34,6 @@ msgid "Show weather warnings"
 msgstr "Prikaži vremenska opozorila"
 
 #: ../contents/ui/config/ConfigGeneral.qml
-msgid "Desktop Widget: Show background"
-msgstr "Namizni gradnik: prikaži ozadje"
-
-#: ../contents/ui/config/ConfigGeneral.qml
 msgid "Font Family:"
 msgstr "Družina pisav"
 
@@ -62,6 +58,10 @@ msgstr "Besedilo:"
 msgid "Outline:"
 msgstr "Obroba:"
 
+#: ../contents/ui/libconfig/BackgroundToggle.qml
+msgid "Desktop Widget:"
+msgstr "Namizni gradnik:"
+
 #: ../contents/ui/libconfig/FontFamily.qml
 msgctxt "Use default font"
 msgid "Default"
@@ -74,3 +74,6 @@ msgstr "Veter:"
 #: ../contents/ui/main.qml
 msgid "Refresh"
 msgstr "Osveži"
+
+#~ msgid "Desktop Widget: Show background"
+#~ msgstr "Namizni gradnik: prikaži ozadje"
