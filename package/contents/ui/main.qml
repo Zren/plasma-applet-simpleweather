@@ -44,13 +44,15 @@ PlasmoidItem {
 
 	}
 
-	function action_refresh() {
-		weatherData.refresh()
-	}
+	Plasmoid.contextualActions: [
+		PlasmaCore.Action {
+			text: i18n("Refresh")
+			icon.name: "view-refresh"
+			onTriggered: weatherData.refresh()
+		}
+	]
 
 	Component.onCompleted: {
-		plasmoid.setAction("refresh", i18n("Refresh"), "view-refresh")
-
 		// Plasmoid.internalAction("configure").trigger()
 	}
 }
