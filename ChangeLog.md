@@ -1,3 +1,8 @@
+## v9 - March 14 2024
+
+* Port to Qt6 / Plasma6
+* Updated Dutch translation by @Vistaus (Pull Request #21)
+
 ## v8 - February 13 2022
 
 * Port to `QtQuick.Controls 2.0`, `PlasmaComponents 3.0`, and `Kirigami` config. Should work in Ubuntu 20.04 with Qt 5.12 and KDE Frameworks 5.68.

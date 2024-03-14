@@ -18,7 +18,7 @@
 		"Name[hr]": "Jednostavno Vrijeme",
 		"Name[nl]": "Eenvoudig weerbericht",
 		"Name[sl]": "Preprosto vreme",
-		"Version": "8",
+		"Version": "9",
 		"Website": "https://github.com/Zren/plasma-applet-simpleweather"
 	},
 	"X-Plasma-API-Minimum-Version": "6.0"
